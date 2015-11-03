@@ -50,7 +50,8 @@ def main(argv):
         for row in hunchreader:
             if row[0] in data:
                 for col in range(1, len(row)):
-                    if row[col] != data[row[0]][col-1] and row[col] not in data[row[0]][col-1]:
+                    values = data[row[0]][col-1].split(symbol)
+                    if row[col] != data[row[0]][col-1] and row[col] not in values:
                         data[row[0]][col-1] += symbol + row[col]
             else:
                 data[row[0]] = row[1:]
